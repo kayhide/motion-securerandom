@@ -1,38 +1,52 @@
-# Motion::SecureRandom
+# motion-securerandom
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/motion/securerandom`. To experiment with that code, run `bin/console` for an interactive prompt.
+SecureRandom library for RubyMotion.
 
-TODO: Delete this and the text above, and describe your gem
+## Requirements
+
+- Ruby 2.2.x
+
+This gem directly imports the codes from the original standard library which is found in your development environment.
+So the ruby version (more specifically, the bundled securerandom version) is important.
+
+This is done by [MotionBlender](https://github.com/kayhide/motion_blender).
+
+(2.3.x is not tested yet.)
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your RubyMotion application's Gemfile:
 
 ```ruby
 gem 'motion-securerandom'
 ```
 
-And then execute:
+Or for your gem, add this to .gemspec file:
 
-    $ bundle
+```ruby
+spec.add_runtime_dependency 'motion-securerandom'
+```
 
-Or install it yourself as:
+And `require` it in your gem loader:
 
-    $ gem install motion-securerandom
+```ruby
+require 'motion-securerandom'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+SecureRandom.hex(32)
+# => "b1e53a381e8073f644bf1ed481ca9e521cf13a43bcad09c095fff40105bc041d"
+```
 
 ## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/motion-securerandom. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kayhide/motion-securerandom. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
