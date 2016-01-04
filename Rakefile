@@ -1,6 +1,16 @@
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/ios'
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+Bundler.require
 
-RSpec::Core::RakeTask.new(:spec)
+require 'motion-redgreen'
+require 'motion-stump'
 
-task :default => :spec
+Motion::Project::App.setup do |app|
+  app.name = 'motion-securerandom'
+  app.redgreen_style = :progress
+
+  if app.spec_mode
+    require File.join(app.specs_dir, 'helpers/_init')
+  end
+end
